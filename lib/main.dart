@@ -23,9 +23,9 @@ class _TabBarDemoState extends State<TabBarDemo> {
     ];
 
     final _Tabs = <Tab>[
-      Tab(text: "TODO",),
-      Tab(text: "RECIENTES",),
-      Tab(text: "FAVORITOS",),
+      Tab(text: "ALL",),
+      Tab(text: "RECENT",),
+      Tab(text: "FAVORITES",),
     ];
 
     final _ListTiles = <Widget>[
@@ -58,7 +58,7 @@ class _TabBarDemoState extends State<TabBarDemo> {
               tabs: _Tabs,
             ),
             title: !isSearching 
-            ? Text("Title") 
+            ? Text("Titulo") 
             : TextField(
               decoration: InputDecoration(
                 hintText: "Search here",
