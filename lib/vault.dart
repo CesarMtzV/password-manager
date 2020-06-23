@@ -47,6 +47,13 @@ class _VaultState extends State<Vault> {
         },
       ),
       ListTile(
+        title: Text("Account"),
+        leading: Icon(Icons.account_circle),
+        onTap: () {
+          print("account selected");
+        },
+      ),
+      ListTile(
         title: Text("Settings"),
         leading: Icon(Icons.settings),
         onTap: () {
@@ -60,6 +67,13 @@ class _VaultState extends State<Vault> {
           print("Settings selected");
         },
       ),
+      ListTile(
+        title: Text("Info"),
+        leading: Icon(Icons.info),
+        onTap: () {
+          print("info selected");
+        },
+      ),
     ];
 
     return DefaultTabController(
@@ -71,7 +85,7 @@ class _VaultState extends State<Vault> {
               tabs: _Tabs,
             ),
             title: !isSearching 
-            ? Text("Titulo") 
+            ? Text("Vault") 
             : TextField(
               decoration: InputDecoration(
                 hintText: "Search here",

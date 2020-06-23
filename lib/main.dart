@@ -16,6 +16,10 @@ class _TabBarDemoState extends State<TabBarDemo> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Vault(),
+      theme: ThemeData(
+        primaryColor: Color(0xFFB71C1C),
+        accentColor: Color(0xFFB71C1C),
+      ),
     );
   }
 }
