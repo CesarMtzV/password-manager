@@ -14,14 +14,12 @@ class _VaultState extends State<Vault> {
   Widget build(BuildContext context) {
 
     final _TabPages = <Widget>[
-      Center(child: Text("Page 1"),),
-      Center(child: Text("Page 2"),),
-      Center(child: Text("Page 3"),),
+      Center(child: Text("ALL"),),
+      Center(child: Text("FAVORITES"),),
     ];
 
     final _Tabs = <Tab>[
       Tab(text: "ALL",),
-      Tab(text: "RECENT",),
       Tab(text: "FAVORITES",),
     ];
 
