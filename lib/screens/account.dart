@@ -44,7 +44,12 @@ class _AccountState extends State<Account> {
       ListTile(
         title: Text("Settings"),
         leading: Icon(Icons.settings),
-        onTap: () {},
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Settings()),
+          );
+        },
       ),
       ListTile(
         title: Text("Info"),

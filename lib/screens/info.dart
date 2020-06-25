@@ -31,7 +31,10 @@ class _InfoState extends State<Info> {
         title: Text("Vault"),
         leading: Icon(Icons.lock),
         onTap: () {
-          print("Vault selected");
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Vault()),
+          );
         },
       ),
       ListTile(
