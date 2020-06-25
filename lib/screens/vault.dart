@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'account.dart';
+import 'settings.dart';
+import 'info.dart';
 
 class Vault extends StatefulWidget {
   Vault({Key key}) : super(key: key);
@@ -9,6 +12,23 @@ class Vault extends StatefulWidget {
 class _VaultState extends State<Vault> {
 
   bool isSearching = false;
+  int _selectDrawerItem = 0;
+
+  _getDrawerItemWidget(int pos){
+    switch(pos){
+      case 0: return Vault();
+      case 1: return Account();
+      case 2: return Settings();
+      case 3: return Info();
+    }
+  }
+
+  _onSelectItem(int pos){
+    setState(() {
+      _selectDrawerItem = pos;
+    });
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -48,30 +68,40 @@ class _VaultState extends State<Vault> {
         title: Text("Account"),
         leading: Icon(Icons.account_circle),
         onTap: () {
-          print("account selected");
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Account()),
+          );
         },
       ),
       ListTile(
         title: Text("Settings"),
         leading: Icon(Icons.settings),
         onTap: () {
-          print("Settings selected");
-        },
-      ),
-      ListTile(
-        title: Text("Sign out"),
-        leading: Icon(Icons.exit_to_app),
-        onTap: () {
-          print("Settings selected");
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Settings()),
+          );
         },
       ),
       ListTile(
         title: Text("Info"),
         leading: Icon(Icons.info),
         onTap: () {
-          print("info selected");
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Info()),
+          );
         },
       ),
+      ListTile(
+        title: Text("Sign out"),
+        leading: Icon(Icons.exit_to_app),
+        onTap: () {
+          print("Sing out selected");
+        },
+      ),
+      
     ];
 
     return DefaultTabController(

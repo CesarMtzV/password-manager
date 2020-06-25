@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:password_manager/vault.dart';
+import './screens/vault.dart';
 
 void main() {
   runApp(TabBarDemo());
