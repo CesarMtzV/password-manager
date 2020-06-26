@@ -29,7 +29,6 @@ class _VaultState extends State<Vault> {
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
 
@@ -68,8 +67,9 @@ class _VaultState extends State<Vault> {
         title: Text("Account"),
         leading: Icon(Icons.account_circle),
         onTap: () {
+          Navigator.of(context).pop();
           Navigator.push(
-            context,
+            context, 
             MaterialPageRoute(builder: (context) => Account()),
           );
         },
