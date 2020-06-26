@@ -12,22 +12,6 @@ class Vault extends StatefulWidget {
 class _VaultState extends State<Vault> {
 
   bool isSearching = false;
-  int _selectDrawerItem = 0;
-
-  _getDrawerItemWidget(int pos){
-    switch(pos){
-      case 0: return Vault();
-      case 1: return Account();
-      case 2: return Settings();
-      case 3: return Info();
-    }
-  }
-
-  _onSelectItem(int pos){
-    setState(() {
-      _selectDrawerItem = pos;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -104,14 +88,9 @@ class _VaultState extends State<Vault> {
       
     ];
 
-    return DefaultTabController(
-        length: _Tabs.length,
-        child: Scaffold(
+    return Scaffold(
           backgroundColor: Colors.grey[900],
           appBar: AppBar(
-            bottom: TabBar(
-              tabs: _Tabs,
-            ),
             title: !isSearching 
             ? Text("Vault") 
             : TextField(
@@ -142,8 +121,7 @@ class _VaultState extends State<Vault> {
                 ),
             ],
           ),
-          body: TabBarView(
-            children: _TabPages,
+          body: Center(
           ),
           drawer: Drawer(
             child: ListView(
@@ -151,7 +129,6 @@ class _VaultState extends State<Vault> {
               children: _ListTiles,
             ),
           ),
-        ),
-      );
+        );
   }
 }

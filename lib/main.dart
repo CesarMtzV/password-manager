@@ -17,8 +17,8 @@ class _TabBarDemoState extends State<TabBarDemo> {
     return MaterialApp(
       home: Vault(),
       theme: ThemeData(
-        primaryColor: Color(0xFFB71C1C),
-        accentColor: Color(0xFFB71C1C),
+        primaryColor: Color(0xFFC62828),
+        accentColor: Color(0xFFC62828),
       ),
     );
   }
