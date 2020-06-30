@@ -10,20 +10,26 @@ class Vault extends StatefulWidget {
 }
 
 class _VaultState extends State<Vault> {
-
   bool isSearching = false;
 
   @override
   Widget build(BuildContext context) {
-
     final _TabPages = <Widget>[
-      Center(child: Text("ALL"),),
-      Center(child: Text("FAVORITES"),),
+      Center(
+        child: Text("ALL"),
+      ),
+      Center(
+        child: Text("FAVORITES"),
+      ),
     ];
 
     final _Tabs = <Tab>[
-      Tab(text: "ALL",),
-      Tab(text: "FAVORITES",),
+      Tab(
+        text: "ALL",
+      ),
+      Tab(
+        text: "FAVORITES",
+      ),
     ];
 
     final _ListTiles = <Widget>[
@@ -33,10 +39,8 @@ class _VaultState extends State<Vault> {
         currentAccountPicture: CircleAvatar(
           backgroundColor: Colors.grey[900],
           child: Text(
-            'C', 
-            style: TextStyle(
-              fontSize: 40.0
-            ),
+            'C',
+            style: TextStyle(fontSize: 40.0),
           ),
         ),
       ),
@@ -53,7 +57,7 @@ class _VaultState extends State<Vault> {
         onTap: () {
           Navigator.of(context).pop();
           Navigator.push(
-            context, 
+            context,
             MaterialPageRoute(builder: (context) => Account()),
           );
         },
@@ -85,24 +89,23 @@ class _VaultState extends State<Vault> {
           print("Sing out selected");
         },
       ),
-      
     ];
 
     return Scaffold(
-          backgroundColor: Colors.grey[900],
-          appBar: AppBar(
-            title: !isSearching 
-            ? Text("Vault") 
+      backgroundColor: Color(0xFF212121),
+      appBar: AppBar(
+        title: !isSearching
+            ? Text("RUNE")
             : TextField(
-              decoration: InputDecoration(
-                hintText: "Search here",
-                hintStyle: TextStyle(color: Colors.grey),
-                icon: Icon(Icons.search),
+                decoration: InputDecoration(
+                  hintText: "Search here",
+                  hintStyle: TextStyle(color: Colors.white),
+                  icon: Icon(Icons.search),
+                ),
               ),
-            ),
-            backgroundColor: Colors.grey[850],
-            actions: <Widget>[
-              isSearching 
+        backgroundColor: Color(0xFF484848),
+        actions: <Widget>[
+          isSearching
               ? IconButton(
                   icon: Icon(Icons.cancel),
                   onPressed: () {
@@ -119,16 +122,25 @@ class _VaultState extends State<Vault> {
                     });
                   },
                 ),
-            ],
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          print('add');
+        },
+        child: Icon(
+          Icons.add,
+          color: Colors.white,
+          size: 55,
           ),
-          body: Center(
-          ),
-          drawer: Drawer(
-            child: ListView(
-              padding: EdgeInsets.zero,
-              children: _ListTiles,
-            ),
-          ),
-        );
+        backgroundColor: Color(0xFFC62828),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: _ListTiles,
+        ),
+      ),
+    );
   }
 }
