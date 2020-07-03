@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'vault.dart';
 
@@ -24,8 +26,18 @@ class _AddState extends State<Add> {
           },
         ),
         title: Text("New Login"),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.save),
+            onPressed: () {
+              print('Data Saved');
+            },
+          )
+        ],
       ),
       backgroundColor: Color(0xFF212121),
+
+    
     );
   }
 }
