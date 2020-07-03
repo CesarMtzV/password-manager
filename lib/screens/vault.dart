@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:password_manager/screens/add.dart';
 import 'account.dart';
 import 'settings.dart';
 import 'info.dart';
@@ -126,7 +127,11 @@ class _VaultState extends State<Vault> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          print('add');
+          Navigator.of(context).pop();
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Add()),
+          );
         },
         child: Icon(
           Icons.add,
