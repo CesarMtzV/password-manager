@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './screens/vault.dart';
+import './screens/login.dart';
 
 void main() {
   runApp(TabBarDemo());
@@ -15,7 +16,7 @@ class _TabBarDemoState extends State<TabBarDemo> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Vault(),
+      home: Login(),
       theme: ThemeData(
         primaryColor: Color(0xFFC62828),
         accentColor: Color(0xFFC62828),

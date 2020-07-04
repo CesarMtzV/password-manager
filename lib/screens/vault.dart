@@ -89,46 +89,46 @@ class _VaultState extends State<Vault> {
     ];
 
     return Scaffold(
-          backgroundColor: Colors.grey[900],
-          appBar: AppBar(
-            title: !isSearching 
-            ? Text("Vault") 
-            : TextField(
-              decoration: InputDecoration(
-                hintText: "Search here",
-                hintStyle: TextStyle(color: Colors.grey),
-                icon: Icon(Icons.search),
-              ),
+      backgroundColor: Colors.grey[900],
+      appBar: AppBar(
+        title: !isSearching 
+        ? Text("Vault") 
+        : TextField(
+          decoration: InputDecoration(
+            hintText: "Search here",
+            hintStyle: TextStyle(color: Colors.grey),
+            icon: Icon(Icons.search),
+          ),
+        ),
+        backgroundColor: Colors.grey[850],
+        actions: <Widget>[
+          isSearching 
+          ? IconButton(
+              icon: Icon(Icons.cancel),
+              onPressed: () {
+                setState(() {
+                  this.isSearching = false;
+                });
+              },
+            )
+          : IconButton(
+              icon: Icon(Icons.search),
+              onPressed: () {
+                setState(() {
+                  this.isSearching = true;
+                });
+              },
             ),
-            backgroundColor: Colors.grey[850],
-            actions: <Widget>[
-              isSearching 
-              ? IconButton(
-                  icon: Icon(Icons.cancel),
-                  onPressed: () {
-                    setState(() {
-                      this.isSearching = false;
-                    });
-                  },
-                )
-              : IconButton(
-                  icon: Icon(Icons.search),
-                  onPressed: () {
-                    setState(() {
-                      this.isSearching = true;
-                    });
-                  },
-                ),
-            ],
-          ),
-          body: Center(
-          ),
-          drawer: Drawer(
-            child: ListView(
-              padding: EdgeInsets.zero,
-              children: _ListTiles,
-            ),
-          ),
-        );
+        ],
+      ),
+      body: Center(
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: _ListTiles,
+        ),
+      ),
+    );
   }
 }
