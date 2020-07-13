@@ -3,6 +3,7 @@ import 'package:password_manager/screens/add.dart';
 import 'account.dart';
 import 'settings.dart';
 import 'info.dart';
+import 'welcome.dart';
 
 class Vault extends StatefulWidget {
   Vault({Key key}) : super(key: key);
@@ -87,7 +88,9 @@ class _VaultState extends State<Vault> {
         title: Text("Sign out"),
         leading: Icon(Icons.exit_to_app),
         onTap: () {
-          print("Sing out selected");
+          Navigator.pop(context);
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => Welcome()));
         },
       ),
     ];
