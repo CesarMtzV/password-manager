@@ -36,7 +36,13 @@ class _LoginState extends State<Login> {
       print(_userName);
 
       //Moving to next screen
-      Navigator.push(context, MaterialPageRoute(builder: (context) => Vault()));
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => Vault(
+                    email: _email,
+                    userName: _userName,
+                  )));
     }
   }
 

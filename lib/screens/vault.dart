@@ -6,13 +6,20 @@ import 'info.dart';
 import 'welcome.dart';
 
 class Vault extends StatefulWidget {
-  Vault({Key key}) : super(key: key);
+  //Constructor
+  final String userName;
+  final String email;
 
-  _VaultState createState() => _VaultState();
+  Vault({Key key, @required this.email, @required this.userName})
+      : super(key: key);
+
+  _VaultState createState() => _VaultState(email, userName);
 }
 
 class _VaultState extends State<Vault> {
   bool isSearching = false;
+  String email, userName;
+  _VaultState(this.email, this.userName);
 
   @override
   Widget build(BuildContext context) {
@@ -36,8 +43,8 @@ class _VaultState extends State<Vault> {
 
     final _ListTiles = <Widget>[
       UserAccountsDrawerHeader(
-        accountName: Text("Cesar Martinez"),
-        accountEmail: Text("mc.cesar.art@gmail.com"),
+        accountName: Text(userName),
+        accountEmail: Text(email),
         currentAccountPicture: CircleAvatar(
           backgroundColor: Colors.grey[900],
           child: Text(
