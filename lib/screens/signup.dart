@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:password_manager/utilities/styles.dart';
 import '../widgets/rounded_button.dart';
+import 'login.dart';
 
 class Signup extends StatefulWidget {
   Signup({Key key}) : super(key: key);
@@ -98,6 +99,11 @@ class _SignupState extends State<Signup> {
                         "Sign in",
                         style: TextStyle(color: Colors.redAccent),
                       ),
+                      onTap: () {
+                        Navigator.pop(context);
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Login()));
+                      },
                     )
                   ],
                 )
