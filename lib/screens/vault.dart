@@ -127,7 +127,6 @@ class _VaultState extends State<Vault> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.of(context).pop();
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => Add()),
@@ -136,8 +135,8 @@ class _VaultState extends State<Vault> {
         child: Icon(
           Icons.add,
           color: Colors.white,
-          size: 55,
-          ),
+          size: 30,
+        ),
         backgroundColor: Color(0xFFC62828),
       ),
       drawer: Drawer(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:password_manager/utilities/styles.dart';
 import '../widgets/rounded_button.dart';
 import './signup.dart';
+import 'vault.dart';
 
 class Login extends StatefulWidget {
   Login({Key key}) : super(key: key);
@@ -21,6 +22,9 @@ class _LoginState extends State<Login> {
       print(_email);
       print(_password);
       //Logging in the user w/firebase
+
+      //Moving to next screen
+      Navigator.push(context, MaterialPageRoute(builder: (context) => Vault()));
     }
   }
 
