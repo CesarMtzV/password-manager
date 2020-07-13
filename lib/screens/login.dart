@@ -23,6 +23,18 @@ class _LoginState extends State<Login> {
       print(_password);
       //Logging in the user w/firebase
 
+      //Temporary user generator
+      int atSymbolIndex;
+      for (int i = 0; i < _email.length; i++) {
+        if (_email[i] == '@') {
+          atSymbolIndex = i;
+          break;
+        }
+      }
+      String _userName = _email.substring(0, atSymbolIndex);
+
+      print(_userName);
+
       //Moving to next screen
       Navigator.push(context, MaterialPageRoute(builder: (context) => Vault()));
     }
