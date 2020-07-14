@@ -23,24 +23,6 @@ class _VaultState extends State<Vault> {
 
   @override
   Widget build(BuildContext context) {
-    final _TabPages = <Widget>[
-      Center(
-        child: Text("ALL"),
-      ),
-      Center(
-        child: Text("FAVORITES"),
-      ),
-    ];
-
-    final _Tabs = <Tab>[
-      Tab(
-        text: "ALL",
-      ),
-      Tab(
-        text: "FAVORITES",
-      ),
-    ];
-
     final _ListTiles = <Widget>[
       UserAccountsDrawerHeader(
         accountName: Text(userName),
