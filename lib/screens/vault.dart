@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:password_manager/screens/add.dart';
+import 'package:password_manager/screens/newLogin.dart';
 import 'account.dart';
 import 'settings.dart';
 import 'info.dart';
@@ -139,7 +139,7 @@ class _VaultState extends State<Vault> {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => Add()),
+            MaterialPageRoute(builder: (context) => NewLogin()),
           );
         },
         child: Icon(

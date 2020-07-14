@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'vault.dart';
 
-class Add extends StatefulWidget {
-  Add({Key key}) : super(key: key);
+class NewLogin extends StatefulWidget {
+  NewLogin({Key key}) : super(key: key);
 
   @override
-  _AddState createState() => _AddState();
+  NewLoginState createState() => NewLoginState();
 }
 
-class _AddState extends State<Add> {
+class NewLoginState extends State<NewLogin> {
   bool isSearching = false;
   @override
   Widget build(BuildContext context) {
@@ -18,9 +18,9 @@ class _AddState extends State<Add> {
           icon: Icon(Icons.arrow_back_ios),
           onPressed: () {
             Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => Vault()),
-          );
+              context,
+              MaterialPageRoute(builder: (context) => Vault()),
+            );
           },
         ),
         title: Text("New Login"),
@@ -34,8 +34,6 @@ class _AddState extends State<Add> {
         ],
       ),
       backgroundColor: Color(0xFF212121),
-
-    
     );
   }
 }
