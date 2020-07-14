@@ -13,13 +13,15 @@ class Vault extends StatefulWidget {
   Vault({Key key, @required this.email, @required this.userName})
       : super(key: key);
 
-  _VaultState createState() => _VaultState(email, userName);
+  //_VaultState createState() => _VaultState(email, userName);
+  _VaultState createState() => _VaultState();
 }
 
 class _VaultState extends State<Vault> {
   bool isSearching = false;
-  String email, userName;
-  _VaultState(this.email, this.userName);
+  //String email, userName;
+  String email = "mc.cesar.art@gmail.com", userName = "Cesar Martinez";
+  //_VaultState(this.email, this.userName);
 
   @override
   Widget build(BuildContext context) {
