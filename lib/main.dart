@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './screens/welcome.dart';
+import 'screens/authentication/welcome.dart';
 
 void main() {
   runApp(TabBarDemo());

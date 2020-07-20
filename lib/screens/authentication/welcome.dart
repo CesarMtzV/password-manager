@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../widgets/rounded_button.dart';
-import 'login.dart';
+import 'package:password_manager/screens/authentication/signIn.dart';
+import 'package:password_manager/utilities/styles.dart';
+import 'package:password_manager/widgets/rounded_button.dart';
 import 'signup.dart';
-import '../utilities/styles.dart';
 
 class Welcome extends StatelessWidget {
   @override
