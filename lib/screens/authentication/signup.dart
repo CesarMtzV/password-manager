@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:password_manager/screens/authentication/signIn.dart';
 import 'package:password_manager/utilities/styles.dart';
-import '../widgets/rounded_button.dart';
-import 'login.dart';
+import 'package:password_manager/widgets/rounded_button.dart';
 
 class Signup extends StatefulWidget {
   Signup({Key key}) : super(key: key);

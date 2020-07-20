@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:password_manager/screens/newLogin.dart';
+import 'package:password_manager/screens/authentication/welcome.dart';
 import 'account.dart';
+import 'newLogin.dart';
 import 'settings.dart';
 import 'info.dart';
-import 'welcome.dart';
 
 class Vault extends StatefulWidget {
   //Constructor
