@@ -41,10 +41,16 @@ class NewLoginState extends State<NewLogin> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            padding: EdgeInsets.symmetric(
+              horizontal: 10,
+              vertical: 10,
+            ),
             child: Text(
               "Item information",
-              style: TextStyle(color: Colors.white, fontSize: 15),
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 15,
+              ),
             ),
           ),
           Form(
@@ -53,43 +59,69 @@ class NewLoginState extends State<NewLogin> {
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 30,
+                    vertical: 10,
+                  ),
                   child: TextFormField(
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
                     decoration: InputDecoration(
                       labelText: 'Email',
-                      labelStyle: TextStyle(color: Colors.grey),
+                      labelStyle: TextStyle(
+                        color: Colors.grey,
+                      ),
                     ),
                     onSaved: (input) => _email = input,
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 30,
+                    vertical: 10,
+                  ),
                   child: TextFormField(
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
                     decoration: InputDecoration(
                       labelText: 'Username',
-                      labelStyle: TextStyle(color: Colors.grey),
+                      labelStyle: TextStyle(
+                        color: Colors.grey,
+                      ),
                     ),
                     onSaved: (input) => _userName = input,
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 30,
+                    vertical: 10,
+                  ),
                   child: TextFormField(
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
                     decoration: InputDecoration(
                       labelText: 'Password',
-                      labelStyle: TextStyle(color: Colors.grey),
+                      labelStyle: TextStyle(
+                        color: Colors.grey,
+                      ),
                     ),
                     obscureText: true,
                     onSaved: (input) => _password = input,
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 30,
+                    vertical: 10,
+                  ),
                   child: TextFormField(
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
                     decoration: InputDecoration(
                       labelText: 'URL',
                       labelStyle: TextStyle(color: Colors.grey),
@@ -98,12 +130,19 @@ class NewLoginState extends State<NewLogin> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 30,
+                    vertical: 10,
+                  ),
                   child: TextFormField(
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
                     decoration: InputDecoration(
                       labelText: 'Site name',
-                      labelStyle: TextStyle(color: Colors.grey),
+                      labelStyle: TextStyle(
+                        color: Colors.grey,
+                      ),
                     ),
                     onSaved: (input) => _siteName = input,
                   ),
