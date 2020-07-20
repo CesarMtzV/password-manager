@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:password_manager/screens/authentication/welcome.dart';
+import 'package:password_manager/screens/main/cards_list.dart';
 import 'account.dart';
 import 'newLogin.dart';
 import 'settings.dart';
 import 'info.dart';
+
+import 'package:password_manager/utilities/InformationCard.dart';
 
 class Vault extends StatefulWidget {
   //Constructor
@@ -138,6 +141,11 @@ class _VaultState extends State<Vault> {
           padding: EdgeInsets.zero,
           children: _ListTiles,
         ),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[],
       ),
     );
   }
