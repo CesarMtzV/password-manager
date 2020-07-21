@@ -7,11 +7,10 @@ import 'info.dart';
 
 class Vault extends StatefulWidget {
   //Constructor
-  final String userName;
-  final String email;
+  // final String userName;
+  // final String email;
 
-  Vault({Key key, @required this.email, @required this.userName})
-      : super(key: key);
+  Vault({Key key}) : super(key: key);
 
   //_VaultState createState() => _VaultState(email, userName);
   _VaultState createState() => _VaultState();

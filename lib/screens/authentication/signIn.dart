@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:password_manager/screens/main/vault.dart';
 import 'package:password_manager/utilities/styles.dart';
@@ -16,33 +17,21 @@ class _LoginState extends State<Login> {
   final _formKey = GlobalKey<FormState>();
   String _email, _password;
 
-  _submit() {
+  Future<void> signIn() async {
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
-      print(_email);
-      print(_password);
+
       //Logging in the user w/firebase
-
-      //Temporary user generator
-      int atSymbolIndex;
-      for (int i = 0; i < _email.length; i++) {
-        if (_email[i] == '@') {
-          atSymbolIndex = i;
-          break;
-        }
+      try {
+        AuthResult result = await FirebaseAuth.instance
+            .signInWithEmailAndPassword(email: _email, password: _password);
+        FirebaseUser user = result.user;
+      } catch (e) {
+        print(e.toString());
       }
-      String _userName = _email.substring(0, atSymbolIndex);
-
-      print(_userName);
 
       //Moving to next screen
-      Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) => Vault(
-                    email: _email,
-                    userName: _userName,
-                  )));
+      Navigator.push(context, MaterialPageRoute(builder: (context) => Vault()));
     }
   }
 
@@ -98,7 +87,7 @@ class _LoginState extends State<Login> {
                   ),
                   Container(
                     child: RoundedButton(
-                      onPress: _submit,
+                      onPress: signIn,
                       color: kPrimaryColor,
                       text: 'Sign in',
                       textColor: Colors.white,
