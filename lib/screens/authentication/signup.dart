@@ -14,6 +14,7 @@ class Signup extends StatefulWidget {
 
 class _SignupState extends State<Signup> {
   final _formKey = GlobalKey<FormState>();
+  bool _autoValidate = false;
   final AuthService _auth = AuthService();
   String _firstName, _lastName, _email, _password;
   String error = '';
@@ -51,6 +52,7 @@ class _SignupState extends State<Signup> {
             ),
             Form(
               key: _formKey,
+              autovalidate: _autoValidate,
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
