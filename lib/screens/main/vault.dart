@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:password_manager/screens/authentication/welcome.dart';
 import 'account.dart';
@@ -6,10 +7,6 @@ import 'settings.dart';
 import 'info.dart';
 
 class Vault extends StatefulWidget {
-  //Constructor
-  // final String userName;
-  // final String email;
-
   Vault({Key key}) : super(key: key);
 
   //_VaultState createState() => _VaultState(email, userName);
@@ -78,9 +75,10 @@ class _VaultState extends State<Vault> {
         title: Text("Sign out"),
         leading: Icon(Icons.exit_to_app),
         onTap: () {
-          Navigator.pop(context);
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => Welcome()));
+          FirebaseAuth.instance.signOut();
+          // Navigator.pop(context);
+          // Navigator.push(
+          //     context, MaterialPageRoute(builder: (context) => Welcome()));
         },
       ),
     ];

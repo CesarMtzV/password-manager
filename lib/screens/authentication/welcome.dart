@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:password_manager/screens/authentication/login_register.dart';
 import 'package:password_manager/screens/authentication/signIn.dart';
 import 'package:password_manager/utilities/styles.dart';
 import 'package:password_manager/widgets/rounded_button.dart';
@@ -28,7 +29,7 @@ class Welcome extends StatelessWidget {
             Container(
               padding: EdgeInsets.symmetric(horizontal: 20.0),
               child: Text(
-                "Welcome to Rune. Log in or sign up to acces your vault.",
+                "Welcome to Rune. Let's get started.",
                 style: TextStyle(fontSize: 20),
                 textAlign: TextAlign.center,
               ),
@@ -37,23 +38,23 @@ class Welcome extends StatelessWidget {
               height: 40,
             ),
             RoundedButton(
-              text: "LOGIN",
+              text: "START",
               onPress: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Login()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => LoginOrRegister()));
               },
               color: kPrimaryColorDark,
               textColor: Colors.white,
             ),
-            RoundedButton(
-              text: "SIGN UP",
-              onPress: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Signup()));
-              },
-              color: kPrimaryColor,
-              textColor: Colors.white,
-            )
+            // RoundedButton(
+            //   text: "SIGN UP",
+            //   onPress: () {
+            //     Navigator.push(
+            //         context, MaterialPageRoute(builder: (context) => Signup()));
+            //   },
+            //   color: kPrimaryColor,
+            //   textColor: Colors.white,
+            // )
           ],
         ),
       ),
