@@ -6,6 +6,8 @@ import 'account.dart';
 import 'newLogin.dart';
 import 'settings.dart';
 import 'info.dart';
+import './new_card.dart';
+import './cards_list.dart';
 
 import 'package:password_manager/utilities/InformationCard.dart';
 
@@ -18,9 +20,33 @@ class Vault extends StatefulWidget {
 
 class _VaultState extends State<Vault> {
   bool isSearching = false;
-  //String email, userName;
-  String email = "mc.cesar.art@gmail.com", userName = "Cesar Martinez";
-  //_VaultState(this.email, this.userName);
+
+  String email = "test@test.com", userName = "V";
+
+  final List<Information> _newCardInfo = [
+    Information(
+      email: 'a0000@itesm.mx',
+      user: 'blasefuture',
+      password: '123456',
+      url: 'www.facebook.com',
+      siteName: 'Facebook',
+    ),
+  ];
+
+  void _addNewCardInfo(
+      String email, String user, String password, String url, String siteName) {
+    final addCard = Information(
+      email: email,
+      user: user,
+      password: password,
+      url: url,
+      siteName: siteName,
+    );
+
+    setState(() {
+      _newCardInfo.add(addCard);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -123,7 +149,9 @@ class _VaultState extends State<Vault> {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => NewLogin()),
+            MaterialPageRoute(
+              builder: (context) => NewCard(_addNewCardInfo),
+            ),
           );
         },
         child: Icon(
@@ -142,7 +170,9 @@ class _VaultState extends State<Vault> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[],
+        children: <Widget>[
+          CardList(_newCardInfo),
+        ],
       ),
     );
   }

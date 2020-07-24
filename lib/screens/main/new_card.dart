@@ -12,8 +12,9 @@ class NewCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Container(
+    return Scaffold(
+      appBar: AppBar(),
+      body: Container(
         color: Color(0xFF212121),
         padding: EdgeInsets.all(10),
         child: Column(

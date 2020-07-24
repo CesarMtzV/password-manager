@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:password_manager/utilities/styles.dart';
 
 class AuthForm extends StatefulWidget {
   final void Function(
@@ -47,6 +48,7 @@ class _AuthFormState extends State<AuthForm> {
       appBar: AppBar(
         title: Text("Rune"),
       ),
+      backgroundColor: kBackground,
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -56,7 +58,10 @@ class _AuthFormState extends State<AuthForm> {
               padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
               child: Text(
                 _isLogin ? "Sign in" : "Create account",
-                style: TextStyle(fontSize: 40.0),
+                style: TextStyle(
+                  fontSize: 40.0,
+                  color: Colors.white,
+                ),
               ),
             ),
             Form(

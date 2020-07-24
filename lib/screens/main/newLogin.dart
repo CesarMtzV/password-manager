@@ -11,10 +11,6 @@ class NewLogin extends StatefulWidget {
 }
 
 class NewLoginState extends State<NewLogin> {
-  bool isSearching = false;
-  //final _formKey = GlobalKey<FormState>();
-  //String _email, _userName, _siteName, _password, _url;
-
   final List<Information> _newCardInfo = [
     Information(
       email: 'a0000@itesm.mx',
