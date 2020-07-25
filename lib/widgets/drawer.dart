@@ -4,6 +4,7 @@ import 'package:password_manager/screens/main/account.dart';
 import 'package:password_manager/screens/main/info.dart';
 import 'package:password_manager/screens/main/settings.dart';
 import 'package:password_manager/screens/main/vault.dart';
+import '../utilities/styles.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({Key key}) : super(key: key);
@@ -19,6 +20,7 @@ class AppDrawer extends StatelessWidget {
           style: TextStyle(fontSize: 40.0),
         ),
       ),
+      decoration: BoxDecoration(color: kPrimaryColor),
     );
   }
 
@@ -27,10 +29,16 @@ class AppDrawer extends StatelessWidget {
     return ListTile(
       title: Row(
         children: <Widget>[
-          Icon(icon),
+          Icon(
+            icon,
+            color: Colors.white,
+          ),
           Padding(
             padding: EdgeInsets.only(left: 8.0),
-            child: Text(text),
+            child: Text(
+              text,
+              style: TextStyle(color: Colors.white),
+            ),
           )
         ],
       ),
@@ -41,58 +49,67 @@ class AppDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: ListView(
-        padding: EdgeInsets.zero,
-        children: <Widget>[
-          _createHeader(),
-          _createDrawerItem(
-              icon: Icons.lock,
-              text: 'Vault',
+      child: Container(
+        color: kBackgroundLight,
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            _createHeader(),
+            _createDrawerItem(
+                icon: Icons.lock,
+                text: 'Vault',
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Vault()));
+                }),
+            _createDrawerItem(
+                icon: Icons.account_circle,
+                text: 'Account',
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Account()));
+                }),
+            _createDrawerItem(
+                icon: Icons.settings,
+                text: 'Settings',
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Settings()));
+                }),
+            _createDrawerItem(
+                icon: Icons.info,
+                text: 'Info',
+                onTap: () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => Info()));
+                }),
+            ListTile(
+              title: Row(
+                children: <Widget>[
+                  Icon(
+                    Icons.exit_to_app,
+                    color: Colors.white,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 8.0),
+                    child: Text(
+                      "Sign out",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  )
+                ],
+              ),
               onTap: () {
-                Navigator.pop(context);
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Vault()));
-              }),
-          _createDrawerItem(
-              icon: Icons.account_circle,
-              text: 'Account',
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Account()));
-              }),
-          _createDrawerItem(
-              icon: Icons.settings,
-              text: 'Settings',
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => Settings()));
-              }),
-          _createDrawerItem(
-              icon: Icons.info,
-              text: 'Info',
-              onTap: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Info()));
-              }),
-          ListTile(
-            title: Row(
-              children: <Widget>[
-                Icon(Icons.exit_to_app),
-                Padding(
-                  padding: EdgeInsets.only(left: 8.0),
-                  child: Text("Sign out"),
-                )
-              ],
+                FirebaseAuth.instance.signOut();
+              },
             ),
-            onTap: () {
-              FirebaseAuth.instance.signOut();
-            },
-          ),
-          ListTile(
-            title: Text('v. ALFA'),
-            onTap: () {},
-          )
-        ],
+            ListTile(
+              title: Text('v. ALFA'),
+              onTap: () {},
+            )
+          ],
+        ),
       ),
     );
   }
