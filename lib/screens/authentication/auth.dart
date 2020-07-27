@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:password_manager/utilities/styles.dart';
+import 'package:password_manager/widgets/rounded_button.dart';
 
 class AuthForm extends StatefulWidget {
   final void Function(
@@ -44,102 +45,130 @@ class _AuthFormState extends State<AuthForm> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Rune"),
-      ),
-      backgroundColor: kBackground,
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-              child: Text(
-                _isLogin ? "Sign in" : "Create account",
-                style: TextStyle(
-                  fontSize: 40.0,
-                  color: Colors.white,
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: kBackground,
+        body: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                child: Text(
+                  _isLogin ? "Sign in" : "Create account",
+                  style: TextStyle(
+                    fontSize: 40.0,
+                    color: Colors.white,
+                  ),
                 ),
               ),
-            ),
-            Form(
-              key: _formKey,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  children: <Widget>[
-                    TextFormField(
-                      key: ValueKey('email'),
-                      validator: (input) {
-                        if (input.isEmpty || !input.contains('@')) {
-                          return 'Please enter a valid email';
-                        } else {
-                          return null;
-                        }
-                      },
-                      onSaved: (input) {
-                        _email = input;
-                      },
-                      keyboardType: TextInputType.emailAddress,
-                      decoration: InputDecoration(labelText: "Email address"),
-                    ),
-                    if (!_isLogin)
+              Form(
+                key: _formKey,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    children: <Widget>[
                       TextFormField(
-                        key: ValueKey('user'),
+                        key: ValueKey('email'),
                         validator: (input) {
-                          if (input.isEmpty || input.length < 4) {
-                            return 'Please enter at least 4 characters';
+                          if (input.isEmpty || !input.contains('@')) {
+                            return 'Please enter a valid email';
                           } else {
                             return null;
                           }
                         },
                         onSaved: (input) {
-                          _user = input;
+                          _email = input;
                         },
-                        decoration: InputDecoration(labelText: "Username"),
+                        keyboardType: TextInputType.emailAddress,
+                        decoration: InputDecoration(
+                          labelText: "Email address",
+                          labelStyle: kFormStyle,
+                          enabledBorder: kFormBorderStyle,
+                          focusedBorder: kFormBorderStyle,
+                        ),
+                        style: kFormInput,
                       ),
-                    TextFormField(
-                      key: ValueKey("password"),
-                      validator: (input) {
-                        if (input.isEmpty || input.length < 6) {
-                          return "Password must be at least 6 characters long";
-                        } else {
-                          return null;
-                        }
-                      },
-                      onSaved: (input) {
-                        _password = input;
-                      },
-                      decoration: InputDecoration(labelText: "Password"),
-                      obscureText: true,
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    if (widget.isLoading) CircularProgressIndicator(),
-                    if (!widget.isLoading)
-                      RaisedButton(
-                        child: Text(_isLogin ? "Sign In" : "Sign Up"),
-                        onPressed: _submit,
-                      ),
-                    if (!widget.isLoading)
-                      FlatButton(
-                        child: Text(_isLogin
-                            ? "Create new account"
-                            : "I already have an account"),
-                        onPressed: () {
-                          setState(() {
-                            _isLogin = !_isLogin;
-                          });
+                      if (!_isLogin)
+                        TextFormField(
+                          key: ValueKey('user'),
+                          validator: (input) {
+                            if (input.isEmpty || input.length < 4) {
+                              return 'Please enter at least 4 characters';
+                            } else {
+                              return null;
+                            }
+                          },
+                          onSaved: (input) {
+                            _user = input;
+                          },
+                          decoration: InputDecoration(
+                            labelText: "Username",
+                            labelStyle: kFormStyle,
+                            enabledBorder: kFormBorderStyle,
+                            focusedBorder: kFormBorderStyle,
+                          ),
+                          style: kFormInput,
+                        ),
+                      TextFormField(
+                        key: ValueKey("password"),
+                        validator: (input) {
+                          if (input.isEmpty || input.length < 6) {
+                            return "Password must be at least 6 characters long";
+                          } else {
+                            return null;
+                          }
                         },
-                      )
-                  ],
+                        onSaved: (input) {
+                          _password = input;
+                        },
+                        decoration: InputDecoration(
+                          labelText: "Password",
+                          labelStyle: kFormStyle,
+                          enabledBorder: kFormBorderStyle,
+                          focusedBorder: kFormBorderStyle,
+                        ),
+                        style: kFormInput,
+                        obscureText: true,
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      if (widget.isLoading) CircularProgressIndicator(),
+                      if (!widget.isLoading)
+                        // RaisedButton(
+                        //   child: Text(_isLogin ? "Sign In" : "Sign Up"),
+                        //   onPressed: _submit,
+                        // ),
+                        RoundedButton(
+                          text: _isLogin ? "Sign In" : "Sign Up",
+                          onPress: _submit,
+                          color: kPrimaryColor,
+                          textColor: Colors.white,
+                        ),
+                      if (!widget.isLoading)
+                        FlatButton(
+                          child: Text(
+                            _isLogin
+                                ? "Create new account"
+                                : "I already have an account",
+                            style: TextStyle(
+                              color: kPrimaryColorLight,
+                            ),
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              _isLogin = !_isLogin;
+                            });
+                          },
+                        )
+                    ],
+                  ),
                 ),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );

@@ -7,6 +7,7 @@ class Welcome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kBackground,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -17,18 +18,25 @@ class Welcome extends StatelessWidget {
               children: <Widget>[
                 Text(
                   "Rune",
-                  style: TextStyle(fontSize: 60.0, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    fontSize: 60.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
                 )
               ],
             ),
             SizedBox(
-              height: 10,
+              height: 25,
             ),
             Container(
               padding: EdgeInsets.symmetric(horizontal: 20.0),
               child: Text(
                 "Welcome to Rune. Let's get started.",
-                style: TextStyle(fontSize: 20),
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.white,
+                ),
                 textAlign: TextAlign.center,
               ),
             ),
@@ -44,15 +52,6 @@ class Welcome extends StatelessWidget {
               color: kPrimaryColorDark,
               textColor: Colors.white,
             ),
-            // RoundedButton(
-            //   text: "SIGN UP",
-            //   onPress: () {
-            //     Navigator.push(
-            //         context, MaterialPageRoute(builder: (context) => Signup()));
-            //   },
-            //   color: kPrimaryColor,
-            //   textColor: Colors.white,
-            // )
           ],
         ),
       ),

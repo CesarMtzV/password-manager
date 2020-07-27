@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:password_manager/screens/authentication/login_register.dart';
 import 'package:password_manager/screens/main/vault.dart';
+import 'package:password_manager/utilities/styles.dart';
 import 'screens/authentication/welcome.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -17,9 +18,9 @@ class _TabBarDemoState extends State<TabBarDemo> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Color(0xFFC62828),
-        accentColor: Color(0xFFC62828),
+        accentColor: kPrimaryColor,
       ),
       home: StreamBuilder(
         stream: FirebaseAuth.instance.onAuthStateChanged,
@@ -27,7 +28,7 @@ class _TabBarDemoState extends State<TabBarDemo> {
           if (userSnapshot.hasData) {
             return Vault();
           }
-          return LoginOrRegister();
+          return Welcome();
         },
       ),
     );
