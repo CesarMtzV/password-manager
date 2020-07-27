@@ -11,12 +11,12 @@ class AppDrawer extends StatelessWidget {
 
   Widget _createHeader() {
     return UserAccountsDrawerHeader(
-      accountName: Text("Cesar Martinez"),
-      accountEmail: Text("mc.cesar.art@gmail.com"),
+      accountName: Text("Test"),
+      accountEmail: Text("Test@Test.com"),
       currentAccountPicture: CircleAvatar(
         backgroundColor: Colors.grey[900],
         child: Text(
-          'C',
+          'V',
           style: TextStyle(fontSize: 40.0),
         ),
       ),

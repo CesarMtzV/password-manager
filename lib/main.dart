@@ -20,7 +20,7 @@ class _TabBarDemoState extends State<TabBarDemo> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        accentColor: kPrimaryColor,
+        primaryColor: kPrimaryColor,
       ),
       home: StreamBuilder(
         stream: FirebaseAuth.instance.onAuthStateChanged,
