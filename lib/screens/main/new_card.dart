@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class NewCard extends StatelessWidget {
   final Function addCard;
@@ -21,6 +22,7 @@ class NewCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: <Widget>[
             TextField(
+              keyboardType: TextInputType.emailAddress,
               style: TextStyle(color: Colors.white),
               decoration: InputDecoration(
                 labelText: 'Email',
@@ -37,6 +39,7 @@ class NewCard extends StatelessWidget {
               controller: userController,
             ),
             TextField(
+              keyboardType: TextInputType.url,
               style: TextStyle(color: Colors.white),
               decoration: InputDecoration(
                 labelText: 'Password',
@@ -45,6 +48,7 @@ class NewCard extends StatelessWidget {
               controller: passwordController,
             ),
             TextField(
+              keyboardType: TextInputType.url,
               style: TextStyle(color: Colors.white),
               decoration: InputDecoration(
                 labelText: 'URL',
