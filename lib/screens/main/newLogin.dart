@@ -1,3 +1,6 @@
+// Este archivo no se esta usando pero por lo pronto lo estoy utilizando como referfencia
+// Cuando lo deje de ulitizar lo borraré
+
 import 'package:flutter/material.dart';
 import 'package:password_manager/screens/main/cards_list.dart';
 import 'package:password_manager/utilities/InformationCard.dart';

@@ -27,6 +27,90 @@ class _VaultState extends State<Vault> {
       url: 'www.facebook.com',
       siteName: 'Facebook',
     ),
+    Information(
+      email: 'a0000@itesm.mx',
+      user: 'blasefuture',
+      password: '123456',
+      url: 'www.facebook.com',
+      siteName: 'Facebook',
+    ),
+    Information(
+      email: 'a0000@itesm.mx',
+      user: 'blasefuture',
+      password: '123456',
+      url: 'www.facebook.com',
+      siteName: 'Facebook',
+    ),
+    Information(
+      email: 'a0000@itesm.mx',
+      user: 'blasefuture',
+      password: '123456',
+      url: 'www.facebook.com',
+      siteName: 'Facebook',
+    ),
+    Information(
+      email: 'a0000@itesm.mx',
+      user: 'blasefuture',
+      password: '123456',
+      url: 'www.facebook.com',
+      siteName: 'Facebook',
+    ),
+    Information(
+      email: 'a0000@itesm.mx',
+      user: 'blasefuture',
+      password: '123456',
+      url: 'www.facebook.com',
+      siteName: 'Facebook',
+    ),
+    Information(
+      email: 'a0000@itesm.mx',
+      user: 'blasefuture',
+      password: '123456',
+      url: 'www.facebook.com',
+      siteName: 'Facebook',
+    ),
+    Information(
+      email: 'a0000@itesm.mx',
+      user: 'blasefuture',
+      password: '123456',
+      url: 'www.facebook.com',
+      siteName: 'Facebook',
+    ),
+    Information(
+      email: 'a0000@itesm.mx',
+      user: 'blasefuture',
+      password: '123456',
+      url: 'www.facebook.com',
+      siteName: 'Facebook',
+    ),
+    Information(
+      email: 'a0000@itesm.mx',
+      user: 'blasefuture',
+      password: '123456',
+      url: 'www.facebook.com',
+      siteName: 'Facebook',
+    ),
+    Information(
+      email: 'a0000@itesm.mx',
+      user: 'blasefuture',
+      password: '123456',
+      url: 'www.facebook.com',
+      siteName: 'Facebook',
+    ),
+    Information(
+      email: 'a0000@itesm.mx',
+      user: 'blasefuture',
+      password: '123456',
+      url: 'www.facebook.com',
+      siteName: 'Facebook',
+    ),
+    Information(
+      email: 'a0000@itesm.mx',
+      user: 'blasefuture',
+      password: '123456',
+      url: 'www.facebook.com',
+      siteName: 'Facebook',
+    ),
   ];
 
   void _addNewCardInfo(
@@ -96,12 +180,14 @@ class _VaultState extends State<Vault> {
         backgroundColor: Color(0xFFC62828),
       ),
       drawer: AppDrawer(),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          CardList(_newCardInfo),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            CardList(_newCardInfo),
+          ],
+        ),
       ),
     );
   }
