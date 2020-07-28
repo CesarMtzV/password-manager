@@ -1,9 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:password_manager/screens/main/account.dart';
 import 'package:password_manager/screens/main/info.dart';
-import 'package:password_manager/screens/main/settings.dart';
-import 'package:password_manager/screens/main/vault.dart';
 import '../utilities/styles.dart';
 
 class AppDrawer extends StatelessWidget {
@@ -55,28 +52,6 @@ class AppDrawer extends StatelessWidget {
           padding: EdgeInsets.zero,
           children: <Widget>[
             _createHeader(),
-            _createDrawerItem(
-                icon: Icons.lock,
-                text: 'Vault',
-                onTap: () {
-                  Navigator.pop(context);
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Vault()));
-                }),
-            _createDrawerItem(
-                icon: Icons.account_circle,
-                text: 'Account',
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Account()));
-                }),
-            _createDrawerItem(
-                icon: Icons.settings,
-                text: 'Settings',
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => Settings()));
-                }),
             _createDrawerItem(
                 icon: Icons.info,
                 text: 'Info',

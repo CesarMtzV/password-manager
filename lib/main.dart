@@ -28,7 +28,7 @@ class _TabBarDemoState extends State<TabBarDemo> {
           if (userSnapshot.hasData) {
             return Vault();
           }
-          return Welcome();
+          return LoginOrRegister();
         },
       ),
     );

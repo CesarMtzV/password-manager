@@ -137,10 +137,6 @@ class _AuthFormState extends State<AuthForm> {
                       ),
                       if (widget.isLoading) CircularProgressIndicator(),
                       if (!widget.isLoading)
-                        // RaisedButton(
-                        //   child: Text(_isLogin ? "Sign In" : "Sign Up"),
-                        //   onPressed: _submit,
-                        // ),
                         RoundedButton(
                           text: _isLogin ? "Sign In" : "Sign Up",
                           onPress: _submit,
