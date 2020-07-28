@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:password_manager/screens/main/info.dart';
+import 'package:password_manager/screens/main/about.dart';
 import '../utilities/styles.dart';
 
 class AppDrawer extends StatelessWidget {
@@ -56,8 +56,8 @@ class AppDrawer extends StatelessWidget {
                 icon: Icons.info,
                 text: 'Info',
                 onTap: () {
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => Info()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => About()));
                 }),
             ListTile(
               title: Row(
