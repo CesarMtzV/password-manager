@@ -54,7 +54,7 @@ class AppDrawer extends StatelessWidget {
             _createHeader(),
             _createDrawerItem(
                 icon: Icons.info,
-                text: 'Info',
+                text: 'About',
                 onTap: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => About()));
