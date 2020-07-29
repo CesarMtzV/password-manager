@@ -80,7 +80,7 @@ class AppDrawer extends StatelessWidget {
               },
             ),
             ListTile(
-              title: Text('v. ALFA'),
+              title: Text('v.PRE-ALPHA'),
               onTap: () {},
             )
           ],
