@@ -7,6 +7,100 @@ import '../../widgets/drawer.dart';
 
 import 'package:password_manager/utilities/InformationCard.dart';
 
+final List<Information> _newCardInfo = [
+  Information(
+    email: 'a0000@itesm.mx',
+    user: 'blasefuture',
+    password: '123456',
+    url: 'www.facebook.com',
+    siteName: 'Facebook',
+  ),
+  Information(
+    email: 'a0000@itesm.mx',
+    user: 'blasefuture',
+    password: '123456',
+    url: 'www.facebook.com',
+    siteName: 'Facebook',
+  ),
+  Information(
+    email: 'a0000@itesm.mx',
+    user: 'blasefuture',
+    password: '123456',
+    url: 'www.facebook.com',
+    siteName: 'Facebook',
+  ),
+  Information(
+    email: 'a0000@itesm.mx',
+    user: 'blasefuture',
+    password: '123456',
+    url: 'www.facebook.com',
+    siteName: 'Facebook',
+  ),
+  Information(
+    email: 'a0000@itesm.mx',
+    user: 'blasefuture',
+    password: '123456',
+    url: 'www.facebook.com',
+    siteName: 'Facebook',
+  ),
+  Information(
+    email: 'a0000@itesm.mx',
+    user: 'blasefuture',
+    password: '123456',
+    url: 'www.facebook.com',
+    siteName: 'Facebook',
+  ),
+  Information(
+    email: 'a0000@itesm.mx',
+    user: 'blasefuture',
+    password: '123456',
+    url: 'www.facebook.com',
+    siteName: 'Facebook',
+  ),
+  Information(
+    email: 'a0000@itesm.mx',
+    user: 'blasefuture',
+    password: '123456',
+    url: 'www.facebook.com',
+    siteName: 'Facebook',
+  ),
+  Information(
+    email: 'a0000@itesm.mx',
+    user: 'blasefuture',
+    password: '123456',
+    url: 'www.facebook.com',
+    siteName: 'Facebook',
+  ),
+  Information(
+    email: 'a0000@itesm.mx',
+    user: 'blasefuture',
+    password: '123456',
+    url: 'www.facebook.com',
+    siteName: 'Facebook',
+  ),
+  Information(
+    email: 'a0000@itesm.mx',
+    user: 'blasefuture',
+    password: '123456',
+    url: 'www.facebook.com',
+    siteName: 'Facebook',
+  ),
+  Information(
+    email: 'a0000@itesm.mx',
+    user: 'blasefuture',
+    password: '123456',
+    url: 'www.facebook.com',
+    siteName: 'Facebook',
+  ),
+  Information(
+    email: 'a0000@itesm.mx',
+    user: 'blasefuture',
+    password: '123456',
+    url: 'www.facebook.com',
+    siteName: 'Facebook',
+  ),
+];
+
 class Vault extends StatefulWidget {
   Vault({Key key}) : super(key: key);
 
@@ -18,100 +112,6 @@ class _VaultState extends State<Vault> {
   bool isSearching = false;
 
   String email = "test@test.com", userName = "V";
-
-  final List<Information> _newCardInfo = [
-    Information(
-      email: 'a0000@itesm.mx',
-      user: 'blasefuture',
-      password: '123456',
-      url: 'www.facebook.com',
-      siteName: 'Facebook',
-    ),
-    Information(
-      email: 'a0000@itesm.mx',
-      user: 'blasefuture',
-      password: '123456',
-      url: 'www.facebook.com',
-      siteName: 'Facebook',
-    ),
-    Information(
-      email: 'a0000@itesm.mx',
-      user: 'blasefuture',
-      password: '123456',
-      url: 'www.facebook.com',
-      siteName: 'Facebook',
-    ),
-    Information(
-      email: 'a0000@itesm.mx',
-      user: 'blasefuture',
-      password: '123456',
-      url: 'www.facebook.com',
-      siteName: 'Facebook',
-    ),
-    Information(
-      email: 'a0000@itesm.mx',
-      user: 'blasefuture',
-      password: '123456',
-      url: 'www.facebook.com',
-      siteName: 'Facebook',
-    ),
-    Information(
-      email: 'a0000@itesm.mx',
-      user: 'blasefuture',
-      password: '123456',
-      url: 'www.facebook.com',
-      siteName: 'Facebook',
-    ),
-    Information(
-      email: 'a0000@itesm.mx',
-      user: 'blasefuture',
-      password: '123456',
-      url: 'www.facebook.com',
-      siteName: 'Facebook',
-    ),
-    Information(
-      email: 'a0000@itesm.mx',
-      user: 'blasefuture',
-      password: '123456',
-      url: 'www.facebook.com',
-      siteName: 'Facebook',
-    ),
-    Information(
-      email: 'a0000@itesm.mx',
-      user: 'blasefuture',
-      password: '123456',
-      url: 'www.facebook.com',
-      siteName: 'Facebook',
-    ),
-    Information(
-      email: 'a0000@itesm.mx',
-      user: 'blasefuture',
-      password: '123456',
-      url: 'www.facebook.com',
-      siteName: 'Facebook',
-    ),
-    Information(
-      email: 'a0000@itesm.mx',
-      user: 'blasefuture',
-      password: '123456',
-      url: 'www.facebook.com',
-      siteName: 'Facebook',
-    ),
-    Information(
-      email: 'a0000@itesm.mx',
-      user: 'blasefuture',
-      password: '123456',
-      url: 'www.facebook.com',
-      siteName: 'Facebook',
-    ),
-    Information(
-      email: 'a0000@itesm.mx',
-      user: 'blasefuture',
-      password: '123456',
-      url: 'www.facebook.com',
-      siteName: 'Facebook',
-    ),
-  ];
 
   void _addNewCardInfo(
       String email, String user, String password, String url, String siteName) {
