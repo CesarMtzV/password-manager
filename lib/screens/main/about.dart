@@ -26,7 +26,7 @@ class _AboutState extends State<About> {
     if (await canLaunch(url)) {
       await launch(
         url,
-        forceSafariVC: false,
+        forceSafariVC: true,
         forceWebView: false,
       );
     } else {

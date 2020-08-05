@@ -85,7 +85,7 @@ class _NewCardState extends State<NewCard> {
         title: Text("Account information"),
       ),
       body: Container(
-        height: 700,
+        height: 1100,
         color: Color(0xFF212121),
         padding: EdgeInsets.all(10),
         child: SingleChildScrollView(
