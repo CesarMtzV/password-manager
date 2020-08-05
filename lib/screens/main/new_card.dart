@@ -33,7 +33,7 @@ class NewCard extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: Container(
-        height: 1100,
+        height: 900,
         color: Color(0xFF212121),
         padding: EdgeInsets.all(10),
         child: SingleChildScrollView(

@@ -9,7 +9,7 @@ class CardList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 1200,
+      height: 800,
       child: ListView.builder(
         itemBuilder: (ctx, index) {
           return Card(
