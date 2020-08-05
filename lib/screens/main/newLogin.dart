@@ -50,7 +50,7 @@ class NewLoginState extends State<NewLogin> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
-          NewCard(_addNewCardInfo),
+          //NewCard(_addNewCardInfo),
           CardList(_newCardInfo),
         ],
       ),

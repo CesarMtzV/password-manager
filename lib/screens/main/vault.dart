@@ -1,110 +1,13 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:password_manager/screens/main/cards_list.dart';
+import 'package:password_manager/models/account.dart';
+import 'package:password_manager/utilities/styles.dart';
+import 'package:provider/provider.dart';
 import './new_card.dart';
-import './cards_list.dart';
 import '../../widgets/drawer.dart';
-
-import 'package:password_manager/utilities/InformationCard.dart';
-
-final List<Information> _newCardInfo = [
-  Information(
-    email: 'a0000@itesm.mx',
-    user: 'blasefuture',
-    password: '123456',
-    url: 'www.facebook.com',
-    siteName: 'Facebook',
-  ),
-  Information(
-    email: 'a0000@itesm.mx',
-    user: 'blasefuture',
-    password: '123456',
-    url: 'www.facebook.com',
-    siteName: 'Facebook',
-  ),
-  Information(
-    email: 'a0000@itesm.mx',
-    user: 'blasefuture',
-    password: '123456',
-    url: 'www.facebook.com',
-    siteName: 'Facebook',
-  ),
-  Information(
-    email: 'a0000@itesm.mx',
-    user: 'blasefuture',
-    password: '123456',
-    url: 'www.facebook.com',
-    siteName: 'Facebook',
-  ),
-  Information(
-    email: 'a0000@itesm.mx',
-    user: 'blasefuture',
-    password: '123456',
-    url: 'www.facebook.com',
-    siteName: 'Facebook',
-  ),
-  Information(
-    email: 'a0000@itesm.mx',
-    user: 'blasefuture',
-    password: '123456',
-    url: 'www.facebook.com',
-    siteName: 'Facebook',
-  ),
-  Information(
-    email: 'a0000@itesm.mx',
-    user: 'blasefuture',
-    password: '123456',
-    url: 'www.facebook.com',
-    siteName: 'Facebook',
-  ),
-  Information(
-    email: 'a0000@itesm.mx',
-    user: 'blasefuture',
-    password: '123456',
-    url: 'www.facebook.com',
-    siteName: 'Facebook',
-  ),
-  Information(
-    email: 'a0000@itesm.mx',
-    user: 'blasefuture',
-    password: '123456',
-    url: 'www.facebook.com',
-    siteName: 'Facebook',
-  ),
-  Information(
-    email: 'a0000@itesm.mx',
-    user: 'blasefuture',
-    password: '123456',
-    url: 'www.facebook.com',
-    siteName: 'Facebook',
-  ),
-  Information(
-    email: 'a0000@itesm.mx',
-    user: 'blasefuture',
-    password: '123456',
-    url: 'www.facebook.com',
-    siteName: 'Facebook',
-  ),
-  Information(
-    email: 'a0000@itesm.mx',
-    user: 'blasefuture',
-    password: '123456',
-    url: 'www.facebook.com',
-    siteName: 'Facebook',
-  ),
-  Information(
-    email: 'a0000@itesm.mx',
-    user: 'blasefuture',
-    password: '123456',
-    url: 'www.facebook.com',
-    siteName: 'Facebook',
-  ),
-];
 
 class Vault extends StatefulWidget {
   Vault({Key key}) : super(key: key);
 
-  //_VaultState createState() => _VaultState(email, userName);
   _VaultState createState() => _VaultState();
 }
 
@@ -113,25 +16,12 @@ class _VaultState extends State<Vault> {
 
   String email = "test@test.com", userName = "V";
 
-  void _addNewCardInfo(
-      String email, String user, String password, String url, String siteName) {
-    final addCard = Information(
-      email: email,
-      user: user,
-      password: password,
-      url: url,
-      siteName: siteName,
-    );
-
-    setState(() {
-      _newCardInfo.add(addCard);
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
+    final accounts = Provider.of<List<Account>>(context);
+
     return Scaffold(
-      backgroundColor: Color(0xFF212121),
+      backgroundColor: kBackground,
       appBar: AppBar(
         title: !isSearching
             ? Text("RUNE")
@@ -168,7 +58,7 @@ class _VaultState extends State<Vault> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => NewCard(_addNewCardInfo),
+              builder: (context) => NewCard(),
             ),
           );
         },
@@ -180,15 +70,54 @@ class _VaultState extends State<Vault> {
         backgroundColor: Color(0xFFC62828),
       ),
       drawer: AppDrawer(),
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            CardList(_newCardInfo),
-          ],
-        ),
-      ),
+      body: (accounts != null)
+          ? ListView.builder(
+              itemCount: accounts.length,
+              itemBuilder: (context, index) {
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => NewCard(accounts[index]),
+                      ),
+                    );
+                  },
+                  child: Card(
+                    color: Color(0xFF484848),
+                    child: Row(
+                      children: <Widget>[
+                        Icon(
+                          Icons.star,
+                          color: Colors.white,
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Column(
+                          children: <Widget>[
+                            Text(
+                              accounts[index].siteName,
+                              style: kCardTextSiteNameStyle,
+                            ),
+                            SizedBox(
+                              height: 3,
+                            ),
+                            Text(
+                              accounts[index].userName,
+                              style: kCardTextUserNameStyle,
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                );
+              },
+            )
+          : Center(
+              child: CircularProgressIndicator(),
+            ),
     );
   }
 }
