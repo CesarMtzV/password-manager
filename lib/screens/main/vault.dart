@@ -86,6 +86,7 @@ class _VaultState extends State<Vault> {
                   child: Card(
                     color: Color(0xFF484848),
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: <Widget>[
                         Icon(
                           Icons.star,
@@ -95,6 +96,7 @@ class _VaultState extends State<Vault> {
                           width: 10,
                         ),
                         Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Text(
                               accounts[index].siteName,

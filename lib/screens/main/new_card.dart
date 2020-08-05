@@ -24,6 +24,14 @@ class _NewCardState extends State<NewCard> {
 
   final _formKey = GlobalKey<FormState>();
 
+  bool _obscureText = true;
+
+  void _togglePassword() {
+    setState(() {
+      _obscureText = !_obscureText;
+    });
+  }
+
   @override
   void dispose() {
     emailController.dispose();
@@ -68,21 +76,6 @@ class _NewCardState extends State<NewCard> {
     super.initState();
   }
 
-  // void _submit() {
-  //   final isValid = _formKey.currentState.validate();
-
-  //   if (isValid) {
-  //     _formKey.currentState.save();
-  //     widget.addCard(
-  //       emailController.text,
-  //       userController.text,
-  //       passwordController.text,
-  //       urlController.text,
-  //       siteNameController.text,
-  //     );
-  //   }
-  // }
-
   @override
   Widget build(BuildContext context) {
     final accountProvider = Provider.of<AccountProvider>(context);
@@ -111,7 +104,9 @@ class _NewCardState extends State<NewCard> {
                         controller: emailController,
                         decoration: InputDecoration(
                           labelText: 'Email',
-                          labelStyle: TextStyle(color: Colors.white),
+                          labelStyle: kFormStyle,
+                          enabledBorder: kFormBorderStyle,
+                          focusedBorder: kFormBorderStyle,
                         ),
                         validator: (input) {
                           if (input.isEmpty || !input.contains('@')) {
@@ -125,10 +120,12 @@ class _NewCardState extends State<NewCard> {
                         },
                       ),
                       TextFormField(
-                        style: TextStyle(color: Colors.white),
+                        style: kFormInput,
                         decoration: InputDecoration(
                           labelText: 'Username',
-                          labelStyle: TextStyle(color: Colors.white),
+                          labelStyle: kFormStyle,
+                          enabledBorder: kFormBorderStyle,
+                          focusedBorder: kFormBorderStyle,
                         ),
                         controller: userController,
                         onChanged: (input) {
@@ -140,10 +137,12 @@ class _NewCardState extends State<NewCard> {
                         style: TextStyle(color: Colors.white),
                         decoration: InputDecoration(
                           labelText: 'Password',
-                          labelStyle: TextStyle(color: Colors.white),
+                          labelStyle: kFormStyle,
+                          enabledBorder: kFormBorderStyle,
+                          focusedBorder: kFormBorderStyle,
                         ),
                         controller: passwordController,
-                        obscureText: true,
+                        obscureText: _obscureText,
                         onChanged: (input) {
                           accountProvider.setPassword(input);
                         },
@@ -153,7 +152,9 @@ class _NewCardState extends State<NewCard> {
                         style: TextStyle(color: Colors.white),
                         decoration: InputDecoration(
                           labelText: 'URL',
-                          labelStyle: TextStyle(color: Colors.white),
+                          labelStyle: kFormStyle,
+                          enabledBorder: kFormBorderStyle,
+                          focusedBorder: kFormBorderStyle,
                         ),
                         controller: urlController,
                         onChanged: (input) {
@@ -164,7 +165,9 @@ class _NewCardState extends State<NewCard> {
                         style: TextStyle(color: Colors.white),
                         decoration: InputDecoration(
                           labelText: 'Site Name',
-                          labelStyle: TextStyle(color: Colors.white),
+                          labelStyle: kFormStyle,
+                          enabledBorder: kFormBorderStyle,
+                          focusedBorder: kFormBorderStyle,
                         ),
                         controller: siteNameController,
                         onChanged: (input) {
