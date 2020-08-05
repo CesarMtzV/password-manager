@@ -15,3 +15,13 @@ final kFormBorderStyle = UnderlineInputBorder(
     color: Colors.grey[400],
   ),
 );
+
+final kCardTextSiteNameStyle = TextStyle(
+  fontSize: 16,
+  color: Colors.white,
+);
+
+final kCardTextUserNameStyle = TextStyle(
+  fontSize: 15,
+  color: Colors.grey,
+);

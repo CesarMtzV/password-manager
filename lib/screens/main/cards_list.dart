@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:password_manager/utilities/InformationCard.dart';
 
 class CardList extends StatelessWidget {
   final List<Information> cards;
