@@ -1,23 +1,29 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:password_manager/models/account.dart';
 import 'package:password_manager/screens/main/about.dart';
 import '../utilities/styles.dart';
 
 class AppDrawer extends StatelessWidget {
-  const AppDrawer({Key key}) : super(key: key);
-
-  Widget _createHeader() {
-    return UserAccountsDrawerHeader(
-      accountName: Text("Test"),
-      accountEmail: Text("Test@Test.com"),
-      currentAccountPicture: CircleAvatar(
-        backgroundColor: Colors.grey[900],
-        child: Text(
-          'V',
-          style: TextStyle(fontSize: 40.0),
-        ),
-      ),
-      decoration: BoxDecoration(color: kPrimaryColor),
+  Widget _createHead() {
+    return StreamBuilder(
+      stream: Firestore.instance.collection('users').snapshots(),
+      builder: (context, snapshot) {
+        if (!snapshot.hasData) return CircularProgressIndicator();
+        return UserAccountsDrawerHeader(
+          accountName: Text(snapshot.data.documents[0]['username']),
+          accountEmail: Text(snapshot.data.documents[0]['email']),
+          currentAccountPicture: CircleAvatar(
+            backgroundColor: Colors.grey[900],
+            child: Text(
+              'T',
+              style: TextStyle(fontSize: 40.0),
+            ),
+          ),
+          decoration: BoxDecoration(color: kPrimaryColor),
+        );
+      },
     );
   }
 
@@ -51,7 +57,7 @@ class AppDrawer extends StatelessWidget {
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
-            _createHeader(),
+            _createHead(),
             _createDrawerItem(
                 icon: Icons.info,
                 text: 'About',
