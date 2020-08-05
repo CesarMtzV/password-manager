@@ -90,7 +90,7 @@ class _VaultState extends State<Vault> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: <Widget>[
                         Icon(
-                          Icons.star,
+                          Icons.crop_square,
                           color: Colors.white,
                         ),
                         SizedBox(
