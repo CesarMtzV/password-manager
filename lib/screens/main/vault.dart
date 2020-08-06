@@ -19,7 +19,6 @@ class _VaultState extends State<Vault> {
   @override
   Widget build(BuildContext context) {
     final accounts = Provider.of<List<Account>>(context);
-    int _userIndex;
 
     return Scaffold(
       backgroundColor: kBackground,

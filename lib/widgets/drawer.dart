@@ -1,31 +1,64 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:password_manager/models/account.dart';
 import 'package:password_manager/screens/main/about.dart';
 import '../utilities/styles.dart';
 
-class AppDrawer extends StatelessWidget {
-  Widget _createHead() {
-    return StreamBuilder(
-      stream: Firestore.instance.collection('users').snapshots(),
-      builder: (context, snapshot) {
-        if (!snapshot.hasData) return CircularProgressIndicator();
-        return UserAccountsDrawerHeader(
-          accountName: Text(snapshot.data.documents[0]['username']),
-          accountEmail: Text(snapshot.data.documents[0]['email']),
-          currentAccountPicture: CircleAvatar(
-            backgroundColor: Colors.grey[900],
-            child: Text(
-              'T',
-              style: TextStyle(fontSize: 40.0),
-            ),
-          ),
-          decoration: BoxDecoration(color: kPrimaryColor),
-        );
-      },
+class AppDrawer extends StatefulWidget {
+  @override
+  _AppDrawerState createState() => _AppDrawerState();
+}
+
+class _AppDrawerState extends State<AppDrawer> {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  FirebaseUser user;
+
+  @override
+  void initState() {
+    super.initState();
+    initUser();
+  }
+
+  initUser() async {
+    user = await _auth.currentUser();
+    setState(() {});
+  }
+
+  Widget _createHeader() {
+    return UserAccountsDrawerHeader(
+      accountName: Text("${user?.displayName}"),
+      accountEmail: Text("${user?.email}"),
+      currentAccountPicture: CircleAvatar(
+        backgroundColor: Colors.grey[900],
+        child: Text(
+          'T',
+          style: TextStyle(fontSize: 40.0),
+        ),
+      ),
+      decoration: BoxDecoration(color: kPrimaryColor),
     );
   }
+
+  // Widget _createHead() {
+  //   return StreamBuilder(
+  //     stream: Firestore.instance.collection('users').snapshots(),
+  //     builder: (context, snapshot) {
+  //       if (!snapshot.hasData) return CircularProgressIndicator();
+  //       return UserAccountsDrawerHeader(
+  //         accountName: Text(snapshot.data.documents[0]['username']),
+  //         accountEmail: Text(snapshot.data.documents[0]['email']),
+  //         currentAccountPicture: CircleAvatar(
+  //           backgroundColor: Colors.grey[900],
+  //           child: Text(
+  //             'T',
+  //             style: TextStyle(fontSize: 40.0),
+  //           ),
+  //         ),
+  //         decoration: BoxDecoration(color: kPrimaryColor),
+  //       );
+  //     },
+  //   );
+  // }
 
   Widget _createDrawerItem(
       {IconData icon, String text, GestureTapCallback onTap}) {
@@ -57,7 +90,7 @@ class AppDrawer extends StatelessWidget {
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
-            _createHead(),
+            _createHeader(),
             _createDrawerItem(
                 icon: Icons.info,
                 text: 'About',
