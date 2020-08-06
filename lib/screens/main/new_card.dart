@@ -136,11 +136,15 @@ class _NewCardState extends State<NewCard> {
                         keyboardType: TextInputType.url,
                         style: TextStyle(color: Colors.white),
                         decoration: InputDecoration(
-                          labelText: 'Password',
-                          labelStyle: kFormStyle,
-                          enabledBorder: kFormBorderStyle,
-                          focusedBorder: kFormBorderStyle,
-                        ),
+                            labelText: 'Password',
+                            labelStyle: kFormStyle,
+                            enabledBorder: kFormBorderStyle,
+                            focusedBorder: kFormBorderStyle,
+                            suffixIcon: IconButton(
+                              icon: Icon(Icons.remove_red_eye),
+                              onPressed: () => _togglePassword(),
+                              color: Colors.white,
+                            )),
                         controller: passwordController,
                         obscureText: _obscureText,
                         onChanged: (input) {
