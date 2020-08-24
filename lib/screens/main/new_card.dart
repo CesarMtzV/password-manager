@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:password_manager/models/account.dart';
 import 'package:password_manager/providers/account_provider.dart';
+import 'package:password_manager/screens/main/generate_password.dart';
+import 'package:password_manager/services/password_generator.dart';
 import 'package:password_manager/utilities/styles.dart';
 import 'package:provider/provider.dart';
 
@@ -25,6 +27,11 @@ class _NewCardState extends State<NewCard> {
   final _formKey = GlobalKey<FormState>();
 
   bool _obscureText = true;
+
+  //void setRandomPassword() {
+  //String newPassword = generatePassword(true, true, true, true, 10);
+  //print(newPassword);
+  //}
 
   void _togglePassword() {
     setState(() {
@@ -149,6 +156,20 @@ class _NewCardState extends State<NewCard> {
                         obscureText: _obscureText,
                         onChanged: (input) {
                           accountProvider.setPassword(input);
+                        },
+                      ),
+                      FlatButton(
+                        child: Text(
+                          "Generate random password",
+                          style: kFormStyle,
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => GeneratePassword(),
+                            ),
+                          );
                         },
                       ),
                       TextFormField(

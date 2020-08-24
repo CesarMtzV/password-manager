@@ -25,3 +25,9 @@ final kCardTextUserNameStyle = TextStyle(
   fontSize: 15,
   color: Colors.grey,
 );
+
+final kPasswordPreviewStyle = TextStyle(
+  fontSize: 30,
+  color: Colors.white,
+  letterSpacing: 2.0,
+);
