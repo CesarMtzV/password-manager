@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "779087654316",
+    "firebase_url": "https://rune-3ef55.firebaseio.com",
+    "project_id": "rune-3ef55",
+    "storage_bucket": "rune-3ef55.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:779087654316:android:52f0b04845e0a90bcd5e09",
+        "android_client_info": {
+          "package_name": "com.ralex.password_manager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "779087654316-nq9oibicoo4aq4m1p79545248rlte0sj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOJo4b--HmWEDnvpVV0ZhkwI5bLC3kdR0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "779087654316-nq9oibicoo4aq4m1p79545248rlte0sj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "779087654316-gc85pd24m1j2luflllp0205ocrfrb3dv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ralex.passwordManager"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
